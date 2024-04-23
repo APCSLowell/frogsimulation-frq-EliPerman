@@ -15,13 +15,21 @@ public class FrogSimulation
 	
 	public boolean simulate()
 	{ 
-		/* to be implemented in part (a) */
-
+		int x = 0;
+		for (int i = 0; i < maxHops; i++){
+			if (x < 0) return false;
+			if (x >= goalDistance) return true;
+			x += hopDistance();
+		}
+		return false;
 	}
 	
 	public double runSimulations(int num)
 	{ 
-		/* to be implemented in part (b) */ 
+		double stat = 0;
+		for (int i = 0; i < num; i++)
+			if (simulate()) stat++;
+		return stat/num;
 
 	}
 	
